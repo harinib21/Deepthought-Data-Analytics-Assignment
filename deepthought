@@ -1,0 +1,149 @@
+DT BUSINESS ANALYST ASSIGNMENT
+Task 1: Daily Clinic Inventory Micro-Audit
+Context:
+I am acting as a Clinic Business Analyst for a small clinic pharmacy where:
+1.Medicines are not barcoded
+2.Sales entries are typed manually
+3.Small errors happen frequently
+4.Doctor time is very limited
+My responsibility is not full reconciliation, but to design a daily micro-audit system that:
+1.Detects sales-entry mistakes early
+2.Improves billing discipline among staff
+3.Prevents inventory shocks at month-end
+The system should take only 20–30 minutes per day and work in real clinic conditions.
+
+STEP 1 — Identify High-Risk Medicines
+I do not check all medicines daily because that would take too much time and staff would stop taking it seriously.
+Instead, I create a High-Risk Medicine List based on where errors are most likely.
+Criteria I used
+1.High daily sales volume
+2.Medicines entered with different names
+3.Frequently prescribed by the doctor
+I focus my daily checks only on these medicines.
+
+STEP 2 — Normalize Sales Entry Names
+Since sales are entered manually, the same medicine appears under different names in the sales register.
+For example:
+“Dolo”, “Dolo kind” → Dolo 650
+“Azithro 500”, “Azithromycin” → Azithromycin 500
+Before checking stock, I mentally map all such variations to one master medicine name.
+
+STEP 3 — Daily Expected Stock Check
+For each high-risk medicine, I calculate the Expected Closing Stock using this simple logic:
+Expected Closing Stock = Opening Stock + Purchases − Sales
+I only do this calculation for high-risk medicines, not for all items.
+Example: Dolo 650
+Opening Stock = 1,000
+Purchases = 500
+Sales:
+Dolo → 10
+Dolo 650 → 15
+Dolo kind → 5
+Total Sales = 30
+Expected Closing Stock
+= 1,000 + 500 − 30
+= 1,470
+Actual Closing Stock (given) = 1,440
+Difference = −30
+This difference indicates a likely sales-entry or quantity mistake that should be checked the same day.
+
+STEP 4 — Quantity Pattern Check
+I quickly look for abnormal patterns such as:
+Sudden spike in sales for a medicine
+Zero sales for a medicine that is usually prescribed daily
+These patterns usually indicate:
+1.Typing errors
+2.Missed billing
+3.Wrong quantity entry
+This step helps catch errors without doing detailed reconciliation.
+
+STEP 5 — Random Physical Stock Check
+Every day, I randomly pick 1 or 2 medicines (preferably from the high-risk list) and do a quick physical count.
+The medicine chosen changes daily.
+This random check:
+1.Keeps staff alert
+2.Improves billing discipline
+3.Does not increase workload
+I avoid checking the same medicine every day.
+I do this because otherwise the system will show false mismatches even when stock is correct.
+
+STEP 6 — Daily Summary for Doctor
+At the end of the micro-audit, I prepare a very short summary for the doctor.
+Daily Inventory Health Summary
+Medicines checked today
+Any mismatch found (Yes / No)
+Action taken
+The doctor does not see raw data or calculations — only this summary.
+
+Why This Micro-Audit System Works:
+1.Takes only 20–30 minutes per day
+2.Works without barcodes or advanced systems
+3.Detects small errors before they become big problems
+4.Improves staff discipline without blaming
+5.Keeps doctor involvement minimal
+Instead of doing heavy audits at month-end, this system uses small daily discipline to keep inventory clean.
+
+
+DT BUSINESS ANALYST ASSIGNMENT
+Task 2: Patient Care & Communication System Design
+STEP 1 — Categorize Patient Messages
+I first divide all patient communication into three simple types.
+
+Type 1: Automated Messages
+Messages that do not need human judgment.
+Examples:
+Appointment confirmation
+Follow-up reminder
+“Your report is ready” message
+These messages can be sent automatically.
+
+Type 2: Staff-Handled Messages
+Messages that need a response but not a doctor.
+Examples:
+“When should I take this tablet?”
+“Can I change my appointment?”
+Staff replies using standard instructions.
+
+Type 3: Doctor-Only Messages
+Messages related to medical risk.
+Examples:
+New symptoms
+Side effects
+Post-treatment complications
+Only these messages are forwarded to the doctor.
+
+STEP 2 — Simple Google Sheet Setup
+I use one Google Sheet with three basic columns:
+Patient Name	Follow-up Date	Message Type
+Message Type:
+Auto
+Staff
+Doctor
+This sheet controls who handles the message.
+
+STEP 3 — Daily Workflow
+After the visit, the follow-up date and message type are noted
+Each day, staff checks the sheet
+Automated messages are sent first
+Staff replies to routine queries
+Only doctor-level cases are escalated
+
+STEP 4 — Protecting Doctor Time
+Doctor does not check WhatsApp directly
+Doctor sees only serious cases
+All routine communication is filtered
+This reduces interruptions and improves focus.
+
+Why This Simple System Works:
+Very easy for staff to follow
+No new software needed
+Saves doctor time
+Patients still receive timely responses
+Scales as patient volume grows
+
+Conclusion:
+This simple patient communication system:
+Removes WhatsApp chaos
+Keeps care organized
+Protects doctor attention
+Works in real clinic conditions
